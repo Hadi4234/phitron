@@ -54,6 +54,13 @@ void insert_at_position(Node *head, int pos, int v)
     for (int i = 1; i <= pos - 1; i++)
     {
         tmp = tmp->next;
+        if (tmp == NULL)
+        {
+            cout << endl
+                 << "Invalid Index" << endl
+                 << endl;
+            return;
+        }
     }
     newNode->next = tmp->next;
     tmp->next = newNode;
@@ -77,6 +84,20 @@ void delete_from_position(Node *head, int pos)
     for (int i = 1; i <= pos - 1; i++)
     {
         tmp = tmp->next;
+        if (tmp == NULL)
+        {
+            cout << endl
+                 << "Invalid Index" << endl
+                 << endl;
+            return;
+        }
+    }
+    if (tmp->next == NULL)
+    {
+        cout << endl
+             << "Invalid Index" << endl
+             << endl;
+        return;
     }
     Node *deleteNode = tmp->next;
     tmp->next = tmp->next->next;
@@ -87,6 +108,13 @@ void delete_from_position(Node *head, int pos)
 }
 void delete_head(Node *&head)
 {
+    if (head == NULL)
+    {
+        cout << endl
+             << "Head is not available" << endl
+             << endl;
+        return;
+    }
     Node *deleteNode = head;
     head = head->next;
     delete deleteNode;
@@ -99,12 +127,11 @@ int main()
     Node *head = NULL;
     while (true)
     {
-        cout << "Option 1: Insert at Tail" << endl;
-        cout << "Option 2: Print Linked List" << endl;
-        cout << "Option 3: Insert at any Position" << endl;
-        cout << "Option 4: Insert at Head" << endl;
-        cout << "Option 5: Delete from Position" << endl;
-        cout << "Option 6: Delete head" << endl;
+        cout << "Option 1: Insert at Tail" << endl;         // done
+        cout << "Option 2: Print Linked List" << endl;      // done
+        cout << "Option 3: Insert at any Position" << endl; // done
+        cout << "Option 4: Insert at Head" << endl;         // done
+        cout << "Option 5: Delete from Position" << endl;   // done
         cout << "Option 7: Terminate" << endl;
         int op;
         cin >> op;
